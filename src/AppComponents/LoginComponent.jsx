@@ -44,11 +44,7 @@ export const LoginComponent = () => {
                             <Text color="#EF5350" textAlign="center">{errorMessage}</Text>
                         </Box>
                     )}
-                    {token && (
-                        <Box borderTopRightRadius={"20px"} borderTopLeftRadius={"20px"} borderBottomLeftRadius={"20px"}  w={"auto"} bg="#2b2b2bff" p={2} >
-                            <Text color="#029d43ff" textAlign="center">{"Login Successful"}</Text>
-                        </Box>
-                    )}
+
                     <Field.Root required w={{ base: "300px", md: "480px", lg: "580px" }}>
                         <Field.Label>
                             Email

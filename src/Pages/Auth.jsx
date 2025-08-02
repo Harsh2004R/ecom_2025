@@ -22,7 +22,7 @@ function Auth() {
                     <Button w="48%" h="98%" mt="4px" color={currentTab === "Login" ? "#03A9F4" : ""} onClick={handleLoginTab} border={currentTab === "Login" ? "3px solid #1976D2" : "none"}><Text letterSpacing="1.5px" >Login</Text></Button>
                 </Flex>
                 {
-                    currentTab === "Login" ? <LoginComponent /> : <SignupComponent />
+                    currentTab === "Login" ? <LoginComponent /> : <SignupComponent redirect={setCurrentTab} />
                 }
             </Center>
         </Container >
