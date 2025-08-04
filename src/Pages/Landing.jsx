@@ -1,10 +1,11 @@
+import { Heading } from '@chakra-ui/react'
 import React from 'react'
 
 function Landing() {
     return (
-        <div>
+        <Heading textAlign={"center"}>
             Landing...
-        </div>
+        </Heading>
     )
 }
 
