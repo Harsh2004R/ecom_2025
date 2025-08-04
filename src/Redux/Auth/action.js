@@ -1,4 +1,5 @@
 import { AUTH_REQUEST, AUTH_REQUEST_FAILURE, AUTH_GET_REQUEST_SUCCESS, REGISTER_SUCCESS_REQUEST } from "./actionTypes"
+import { BASE_URL } from "@/URL/base_url";
 import axios from 'axios';
 export const authRequestAction = () => {
     return { type: AUTH_REQUEST }
@@ -17,7 +18,7 @@ export const registerSuccessAction = (payload) => {
 
 export const loginRequest = (loginData) => async (dispatch) => {
     try {
-        const res = await axios.post("http://localhost:4000/api/user/login", loginData);
+        const res = await axios.post(`${BASE_URL}api/user/login`, loginData);
         dispatch(authRequestSuccessAction(res.data.token))
         // console.log(res.data)
     } catch (error) {
@@ -29,7 +30,7 @@ export const loginRequest = (loginData) => async (dispatch) => {
 
 export const signupRequest = (signupData) => async (dispatch) => {
     try {
-        const res = await axios.post("http://localhost:4000/api/user/register", signupData);
+        const res = await axios.post(`${BASE_URL}/api/user/register`, signupData);
         dispatch(authRequestSuccessAction(res.data.userID))
         console.log(res.data.userID)
     } catch (error) {
