@@ -1,11 +1,17 @@
-import { Heading } from '@chakra-ui/react'
 import React from 'react'
-
+import { Box, Grid, Heading } from '@chakra-ui/react'
+import ProductCard from '@/AppComponents/ProductCard'
 function Landing() {
     return (
-        <Heading textAlign={"center"}>
-            Landing...
-        </Heading>
+        <>
+            <Heading size={"4xl"} textAlign={"center"}>
+                Home
+            </Heading>
+
+
+
+        </>
+
     )
 }
 
