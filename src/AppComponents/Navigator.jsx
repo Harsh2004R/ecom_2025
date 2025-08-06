@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { logout } from "../Redux/Auth/action.js"
-import { Container, Flex, Text,  Image, Box, Center, Menu, Portal } from '@chakra-ui/react'
+import { Container, Flex, Text, Image, Box, Center, Menu, Portal } from '@chakra-ui/react'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,21 +27,25 @@ function Navigator() {
             path: "/auth",
         },
         {
-            name: "dummy url",
-            path: "/1",
+            name: "Product",
+            path: "/product",
 
-        }, {
+        }
+        , {
             name: "Private Page",
             path: "/private",
-        },
-        {
+        }
+        , {
             name: "...",
-            path: "/2",
-
+            path: "/auth2568",
         }, {
             name: "...",
-            path: "/auth2",
-        },
+            path: "/auth24",
+        }
+        , {
+            name: "...",
+            path: "/auth22",
+        }
 
 
     ]

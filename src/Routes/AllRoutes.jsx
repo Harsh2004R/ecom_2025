@@ -6,6 +6,7 @@ import Auth from '@/Pages/Auth'
 import Landing from '@/Pages/Landing'
 import PageNotExist from '@/Pages/PageNotExist'
 import Private from '@/Pages/Private';
+import Product from '@/Pages/Product';
 function AllRoutes() {
     return (
         <>
@@ -17,7 +18,9 @@ function AllRoutes() {
                 <Route path='/private' element={<PrivateRoutes>
                     <Private />
                 </PrivateRoutes>} />
-                {/* <Route path='/' element={<Landing />} /> */}
+                <Route path='/product' element={<PrivateRoutes>
+                    <Product />
+                </PrivateRoutes>} />
                 {/* <Route path='/' element={<Landing />} /> */}
                 {/* <Route path='/' element={<Landing />} /> */}
                 {/* <Route path='/' element={<Landing />} /> */}
