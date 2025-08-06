@@ -1,4 +1,4 @@
-import { AUTH_REQUEST, AUTH_REQUEST_FAILURE, AUTH_GET_REQUEST_SUCCESS, REGISTER_SUCCESS_REQUEST } from "./actionTypes"
+import { AUTH_REQUEST, AUTH_REQUEST_FAILURE, AUTH_GET_REQUEST_SUCCESS, REGISTER_SUCCESS_REQUEST, LOGOUT } from "./actionTypes"
 import { BASE_URL } from "@/URL/base_url";
 import axios from 'axios';
 export const authRequestAction = () => {
@@ -14,13 +14,19 @@ export const authRequestFailureAction = (payload) => {
 export const registerSuccessAction = (payload) => {
     return { type: REGISTER_SUCCESS_REQUEST, payload }
 }
+export const logoutAction = () => {
+    return { type: LOGOUT }
+}
 
 
 export const loginRequest = (loginData) => async (dispatch) => {
     try {
         const res = await axios.post(`${BASE_URL}api/user/login`, loginData);
         dispatch(authRequestSuccessAction(res.data.token))
-        // console.log(res.data)
+        localStorage.setItem("auth-token", res.data.token)
+        localStorage.setItem("user-email", res.data.user.email)
+        localStorage.setItem("user-id", res.data.user.userId)
+        console.log(res.data)
     } catch (error) {
         dispatch(authRequestFailureAction(error.response?.data?.msg || "Login failed"));
         throw error;
@@ -40,7 +46,10 @@ export const signupRequest = (signupData) => async (dispatch) => {
 }
 
 
-
+export const logout = (dispatch) => {
+    localStorage.removeItem("Auth-token");
+    dispatch(logoutAction());
+}
 
 
 

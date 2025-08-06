@@ -1,42 +1,52 @@
 import React, { useState } from 'react'
-import { Container, Flex, Text, Button, Image, Box, Center, Menu, Portal } from '@chakra-ui/react'
+import { logout } from "../Redux/Auth/action.js"
+import { Container, Flex, Text,  Image, Box, Center, Menu, Portal } from '@chakra-ui/react'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from 'react-router-dom';
-
-const Links = [
-    {
-        name: "Home",
-        path: "/",
-
-    }, {
-        name: "Auth",
-        path: "/auth",
-    },
-    {
-        name: "dummy url",
-        path: "/1",
-
-    }, {
-        name: "...",
-        path: "/auth1",
-    },
-    {
-        name: "...",
-        path: "/2",
-
-    }, {
-        name: "...",
-        path: "/auth2",
-    },
-
-
-]
 
 
 function Navigator() {
+    const isAuth = useSelector((store) => store.authReducer.isAuth)
+    const dispatch = useDispatch();
+    console.log("isAuth", isAuth)
     const [toggle, setToggle] = useState(false)
-    console.log(toggle);
+    // console.log(toggle);
+    const handleLogout = () => {
+        dispatch(logout);
+    }
+
+    const Links = [
+        {
+            name: "Home",
+            path: "/",
+
+        }, {
+            name: "Auth",
+            path: "/auth",
+        },
+        {
+            name: "dummy url",
+            path: "/1",
+
+        }, {
+            name: "Private Page",
+            path: "/private",
+        },
+        {
+            name: "...",
+            path: "/2",
+
+        }, {
+            name: "...",
+            path: "/auth2",
+        },
+
+
+    ]
+
+
     return (
         <Container
             // border={"1px solid red"}
@@ -66,7 +76,7 @@ function Navigator() {
                                             <Menu.ItemGroup>
                                                 <Link to="/profile"> <Menu.ItemGroupLabel>Profile</Menu.ItemGroupLabel></Link>
                                                 <Link to="/auth"> <Menu.ItemGroupLabel>Login</Menu.ItemGroupLabel></Link>
-                                                <Link to="/"> <Menu.ItemGroupLabel >Logout</Menu.ItemGroupLabel></Link>
+                                                <Menu.ItemGroupLabel onClick={handleLogout}>Logout</Menu.ItemGroupLabel>
                                             </Menu.ItemGroup>
                                         </Menu.Content>
                                     </Menu.Positioner>
@@ -123,7 +133,7 @@ function Navigator() {
                                     <Menu.ItemGroup>
                                         <Link to="/profile"> <Menu.ItemGroupLabel>Profile</Menu.ItemGroupLabel></Link>
                                         <Link to="/auth"> <Menu.ItemGroupLabel>Login</Menu.ItemGroupLabel></Link>
-                                        <Link to="/"> <Menu.ItemGroupLabel >Logout</Menu.ItemGroupLabel></Link>
+                                        <Menu.ItemGroupLabel onClick={handleLogout}>Logout</Menu.ItemGroupLabel>
                                     </Menu.ItemGroup>
                                 </Menu.Content>
                             </Menu.Positioner>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { shallowEqual, useDispatch, useSelector } from "react-redux"
 import { loginRequest } from "../Redux/Auth/action.js"
 import { authRequestAction } from "../Redux/Auth/action.js"
@@ -7,6 +8,8 @@ import { Box, Center, Button, Flex, Field, Input, Spacer, Spinner, Text } from '
 
 export const LoginComponent = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const location = useLocation();
     const { token, errorMessage, isLoading } = useSelector((store) => {
         return {
             token: store.authReducer.token,
@@ -30,6 +33,8 @@ export const LoginComponent = () => {
         dispatch(loginRequest(login)).then((res) => {
             //    console.log(token, isError, isLoading)
             // we will show a toast here....
+            navigate(location.state || "/");
+
         }).catch((err) => {
             console.log("error from line 24", err)
         })

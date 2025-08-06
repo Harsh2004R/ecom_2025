@@ -1,10 +1,10 @@
-import { Container, Box, Center, Heading, Button, Flex, Text } from '@chakra-ui/react'
+import { Container,  Center, Heading, Button, Flex, Text } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import { LoginComponent } from '@/AppComponents/LoginComponent';
 import { SignupComponent } from '@/AppComponents/SignupComponent';
 
 function Auth() {
-    const [currentTab, setCurrentTab] = useState("Signup");
+    const [currentTab, setCurrentTab] = useState("Login");
     const handleSignupTab = () => {
         setCurrentTab("Signup")
     }

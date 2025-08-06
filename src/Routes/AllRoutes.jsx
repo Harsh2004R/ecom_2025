@@ -1,9 +1,11 @@
+import React from 'react'
+import PrivateRoutes from './PrivateRoutes';
 import { Route, Routes } from 'react-router-dom';
 import Navigator from '@/AppComponents/Navigator';
 import Auth from '@/Pages/Auth'
 import Landing from '@/Pages/Landing'
 import PageNotExist from '@/Pages/PageNotExist'
-import React from 'react'
+import Private from '@/Pages/Private';
 function AllRoutes() {
     return (
         <>
@@ -12,7 +14,9 @@ function AllRoutes() {
                 <Route path='/' element={<Landing />} />
                 <Route path='*' element={<PageNotExist />} />
                 <Route path='/auth' element={<Auth />} />
-                {/* <Route path='/' element={<Landing />} /> */}
+                <Route path='/private' element={<PrivateRoutes>
+                    <Private />
+                </PrivateRoutes>} />
                 {/* <Route path='/' element={<Landing />} /> */}
                 {/* <Route path='/' element={<Landing />} /> */}
                 {/* <Route path='/' element={<Landing />} /> */}
