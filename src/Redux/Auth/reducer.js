@@ -1,5 +1,5 @@
 import { AUTH_REQUEST, AUTH_REQUEST_FAILURE, AUTH_GET_REQUEST_SUCCESS, REGISTER_SUCCESS_REQUEST, LOGOUT } from "./actionTypes"
-const tokenFromStorage = localStorage.getItem("Auth-token");
+const tokenFromStorage = localStorage.getItem("auth-token");
 const initAuthState = {
     isAuth: !!tokenFromStorage,
     token: tokenFromStorage || "",

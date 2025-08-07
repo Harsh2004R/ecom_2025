@@ -47,7 +47,9 @@ export const signupRequest = (signupData) => async (dispatch) => {
 
 
 export const logout = (dispatch) => {
-    localStorage.removeItem("Auth-token");
+    localStorage.removeItem("auth-token");
+    localStorage.removeItem("user-email");
+    localStorage.removeItem("user-id");
     dispatch(logoutAction());
 }
 
