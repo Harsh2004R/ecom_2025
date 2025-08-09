@@ -7,6 +7,7 @@ import Landing from '@/Pages/Landing'
 import PageNotExist from '@/Pages/PageNotExist'
 import Private from '@/Pages/Private';
 import Product from '@/Pages/Product';
+import Dashboard from '../Admin/Dashboard';
 function AllRoutes() {
     return (
         <>
@@ -21,7 +22,7 @@ function AllRoutes() {
                 <Route path='/product' element={<PrivateRoutes>
                     <Product />
                 </PrivateRoutes>} />
-                {/* <Route path='/' element={<Landing />} /> */}
+                <Route path='/dashboard' element={<Dashboard />} />
                 {/* <Route path='/' element={<Landing />} /> */}
                 {/* <Route path='/' element={<Landing />} /> */}
                 {/* <Route path='/' element={<Landing />} /> */}
